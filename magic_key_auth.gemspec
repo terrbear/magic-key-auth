@@ -2,11 +2,11 @@ require 'rake'
 
 Gem::Specification.new do |s|
   s.name     = "magic_key_auth"
-  s.version  = "0.1"
+  s.version  = "0.1.1"
   s.date     = "18Feb2010"
   s.summary  = "authentication mechanism based on SSH keys"
   s.email    = "theath@gmail.com"
-  s.homepage = "http://github.com/terrbear/magic_key_auth"
+  s.homepage = "http://github.com/terrbear/magic-key-auth"
   s.description = "authentication mechanism based on SSH keys"
   s.has_rdoc = false
   s.authors  = ["Terry Heath"]
