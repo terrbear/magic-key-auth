@@ -1,0 +1,26 @@
+Magic Key Auth lets you sign requests with a private key and validate them on another machine.
+
+There are two parts to this process. The first requires that you sign a request. You can do this
+with the MagicKeyAuth::Message class, looking something like this:
+
+message = MagicKeyAuth::Message.new(:keyfile => "~/.ssh/id_rsa", :message => "whatever you want to sign")
+digest = message.digest
+
+If you don't provide a message to the Message class, it defaults to a Unix-style timestamp.
+
+Then, say you do some POST to your awesome app or something, and include your digest. On the server,
+you can do something like:
+
+MagicKeyAuth::SSL.authenticate(:message => the_message_you_signed,
+																:digest => the_digest_you_posted)
+
+And it will return either the name of the public key that verifies the signature, or nil if it isn't 
+found. Note that keys must be in PEM (SSL) format, not the SSH format (which your ssh-keygen provides
+by default). To generate a PEM from your private key, type:
+
+openssl rsa -pubout -in ~/.ssh/id_rsa > yourname.pem
+
+Of course, you'll need to set your key location before doing any of that fun stuff on the server
+side, which you can do with: 
+
+MagicKeyAuth::SSL.key_location = "location/where/you/store/public/keys"
