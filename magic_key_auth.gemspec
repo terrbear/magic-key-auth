@@ -2,8 +2,8 @@ require 'rake'
 
 Gem::Specification.new do |s|
   s.name     = "magic_key_auth"
-  s.version  = "0.1.2"
-  s.date     = "18Feb2010"
+  s.version  = "0.1.3"
+  s.date     = "22Feb2010"
   s.summary  = "authentication mechanism based on SSH keys"
   s.email    = "theath@gmail.com"
   s.homepage = "http://github.com/terrbear/magic-key-auth"

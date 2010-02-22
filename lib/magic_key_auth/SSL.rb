@@ -1,3 +1,5 @@
+require 'ezsig'
+
 module MagicKeyAuth
 	class SSL
 		class << self
